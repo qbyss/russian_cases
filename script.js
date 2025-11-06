@@ -532,25 +532,32 @@ const russianAdjectives = [
 // Combine all words
 const allWords = [...russianNouns, ...russianAdjectives];
 
+// ========== SCREEN NAVIGATION ==========
+
 // Application state
+let currentTopic = null; // 'cases', 'verbs', 'pronouns', 'agreement'
 let currentWord = null;
 let selectedCases = [];
 let correctCount = 0;
 let totalCount = 0;
 let availableWords = [];
-let practiceMode = 'case'; // 'case' or 'agreement'
+let practiceMode = 'case';
 let currentAgreementQuestion = null;
+let currentConfigScreen = null;
 
-// DOM elements
-const prepositionalCheckbox = document.getElementById('prepositional');
-const accusativeCheckbox = document.getElementById('accusative');
-const casePracticeRadio = document.getElementById('casePractice');
-const agreementPracticeRadio = document.getElementById('agreementPractice');
-const startBtn = document.getElementById('startBtn');
+// Screen elements
+const topicSelection = document.getElementById('topicSelection');
+const casesConfig = document.getElementById('casesConfig');
+const verbsConfig = document.getElementById('verbsConfig');
+const pronounsConfig = document.getElementById('pronounsConfig');
+const agreementConfig = document.getElementById('agreementConfig');
 const practiceArea = document.getElementById('practiceArea');
+
+// Practice area elements
 const baseWordEl = document.getElementById('baseWord');
 const translationEl = document.getElementById('translation');
 const caseTypeEl = document.getElementById('caseType');
+const questionTextEl = document.getElementById('questionText');
 const optionsContainer = document.getElementById('optionsContainer');
 const feedbackEl = document.getElementById('feedback');
 const nextBtn = document.getElementById('nextBtn');
@@ -559,62 +566,207 @@ const correctCountEl = document.getElementById('correctCount');
 const totalCountEl = document.getElementById('totalCount');
 const accuracyEl = document.getElementById('accuracy');
 
-// Event listeners
-startBtn.addEventListener('click', startPractice);
+// Navigation functions
+function showScreen(screen) {
+    // Hide all screens
+    topicSelection.classList.add('hidden');
+    casesConfig.classList.add('hidden');
+    verbsConfig.classList.add('hidden');
+    pronounsConfig.classList.add('hidden');
+    agreementConfig.classList.add('hidden');
+    practiceArea.classList.add('hidden');
+
+    // Show requested screen
+    screen.classList.remove('hidden');
+}
+
+function goToTopicSelection() {
+    currentTopic = null;
+    currentConfigScreen = null;
+    showScreen(topicSelection);
+}
+
+function goToConfig(topic) {
+    currentTopic = topic;
+    switch (topic) {
+        case 'cases':
+            currentConfigScreen = casesConfig;
+            showScreen(casesConfig);
+            break;
+        case 'verbs':
+            currentConfigScreen = verbsConfig;
+            showScreen(verbsConfig);
+            break;
+        case 'pronouns':
+            currentConfigScreen = pronounsConfig;
+            showScreen(pronounsConfig);
+            break;
+        case 'agreement':
+            currentConfigScreen = agreementConfig;
+            showScreen(agreementConfig);
+            break;
+    }
+}
+
+function goToPractice() {
+    showScreen(practiceArea);
+}
+
+function goBackFromPractice() {
+    if (currentConfigScreen) {
+        showScreen(currentConfigScreen);
+    } else {
+        goToTopicSelection();
+    }
+}
+
+// Topic selection event listeners
+document.querySelectorAll('.topic-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+        const topic = card.getAttribute('data-topic');
+        goToConfig(topic);
+    });
+});
+
+// Back button event listeners
+document.getElementById('backFromCases').addEventListener('click', goToTopicSelection);
+document.getElementById('backFromVerbs').addEventListener('click', goToTopicSelection);
+document.getElementById('backFromPronouns').addEventListener('click', goToTopicSelection);
+document.getElementById('backFromAgreement').addEventListener('click', goToTopicSelection);
+document.getElementById('backFromPractice').addEventListener('click', goBackFromPractice);
+
+// Start practice buttons
+document.getElementById('startCasesPractice').addEventListener('click', startCasesPractice);
+document.getElementById('startVerbsPractice').addEventListener('click', startVerbsPractice);
+document.getElementById('startPronounsPractice').addEventListener('click', startPronounsPractice);
+document.getElementById('startAgreementPractice').addEventListener('click', startAgreementPractice);
+
+// Practice navigation
 nextBtn.addEventListener('click', loadNextWord);
 showAnswerBtn.addEventListener('click', showAnswer);
 
-prepositionalCheckbox.addEventListener('change', updateStartButton);
-accusativeCheckbox.addEventListener('change', updateStartButton);
+// ========== CASES PRACTICE ==========
 
-function updateStartButton() {
-    const hasSelection = prepositionalCheckbox.checked || accusativeCheckbox.checked;
-    startBtn.disabled = !hasSelection;
-}
-
-function startPractice() {
-    selectedCases = [];
-    if (prepositionalCheckbox.checked) selectedCases.push('prepositional');
-    if (accusativeCheckbox.checked) selectedCases.push('accusative');
+function startCasesPractice() {
+    // Get selected cases
+    const caseCheckboxes = document.querySelectorAll('.case-checkbox:checked');
+    selectedCases = Array.from(caseCheckboxes).map(cb => cb.value);
 
     if (selectedCases.length === 0) {
         alert('Please select at least one case to practice!');
         return;
     }
 
-    // Get selected practice mode
-    practiceMode = casePracticeRadio.checked ? 'case' : 'agreement';
+    // Get practice mode
+    const practiceMode = document.querySelector('input[name="casesPracticeMode"]:checked').value;
 
-    if (practiceMode === 'case') {
-        // Filter words based on selected cases
-        availableWords = allWords.filter(word => selectedCases.includes(word.caseType));
-        shuffleArray(availableWords);
+    // Filter words based on selection
+    let wordsPool = [];
+    if (practiceMode === 'nouns') {
+        wordsPool = russianNouns;
+    } else if (practiceMode === 'adjectives') {
+        wordsPool = russianAdjectives;
     } else {
-        // For agreement mode, prepare noun-adjective combinations
-        const nouns = russianNouns.filter(noun => selectedCases.includes(noun.caseType));
-        shuffleArray(nouns);
-        availableWords = nouns;
+        wordsPool = allWords;
     }
+
+    availableWords = wordsPool.filter(word => selectedCases.includes(word.caseType));
+
+    if (availableWords.length === 0) {
+        alert('No words available for the selected options. Try different settings.');
+        return;
+    }
+
+    shuffleArray(availableWords);
 
     // Reset stats
     correctCount = 0;
     totalCount = 0;
     updateStats();
 
-    // Show practice area
-    practiceArea.classList.remove('hidden');
-
-    // Load first word
-    loadNextWord();
-
-    // Scroll to practice area
-    practiceArea.scrollIntoView({ behavior: 'smooth' });
+    // Go to practice
+    goToPractice();
+    loadCaseQuestion();
 }
 
-function loadNextWord() {
-    if (practiceMode === 'case') {
-        loadCaseQuestion();
+// ========== VERBS PRACTICE ==========
+
+function startVerbsPractice() {
+    const tenseCheckboxes = document.querySelectorAll('.tense-checkbox:checked');
+    const selectedTenses = Array.from(tenseCheckboxes).map(cb => cb.value);
+
+    if (selectedTenses.length === 0) {
+        alert('Please select at least one tense to practice!');
+        return;
+    }
+
+    // TODO: Implement verb conjugation practice
+    alert('Verb conjugation practice coming soon!');
+}
+
+// ========== PRONOUNS PRACTICE ==========
+
+function startPronounsPractice() {
+    const pronounCheckboxes = document.querySelectorAll('.pronoun-checkbox:checked');
+    const selectedPronouns = Array.from(pronounCheckboxes).map(cb => cb.value);
+
+    const caseCheckboxes = document.querySelectorAll('.pronoun-case-checkbox:checked');
+    selectedCases = Array.from(caseCheckboxes).map(cb => cb.value);
+
+    if (selectedPronouns.length === 0 || selectedCases.length === 0) {
+        alert('Please select at least one pronoun type and one case!');
+        return;
+    }
+
+    // TODO: Implement pronoun practice
+    alert('Pronoun practice coming soon!');
+}
+
+// ========== AGREEMENT PRACTICE ==========
+
+function startAgreementPractice() {
+    const caseCheckboxes = document.querySelectorAll('.agreement-case-checkbox:checked');
+    selectedCases = Array.from(caseCheckboxes).map(cb => cb.value);
+
+    if (selectedCases.length === 0) {
+        alert('Please select at least one case to practice!');
+        return;
+    }
+
+    // Get agreement type
+    const agreementType = document.querySelector('input[name="agreementType"]:checked').value;
+
+    if (agreementType === 'adjective-noun') {
+        // Filter nouns based on selected cases
+        availableWords = russianNouns.filter(noun => selectedCases.includes(noun.caseType));
+
+        if (availableWords.length === 0) {
+            alert('No words available for the selected cases.');
+            return;
+        }
+
+        shuffleArray(availableWords);
+
+        // Reset stats
+        correctCount = 0;
+        totalCount = 0;
+        updateStats();
+
+        // Go to practice
+        goToPractice();
+        loadAgreementQuestion();
     } else {
+        // TODO: Implement number-noun agreement
+        alert('Number-noun agreement practice coming soon!');
+    }
+}
+
+// ========== SHARED PRACTICE FUNCTIONS ==========
+
+function loadNextWord() {
+    if (currentTopic === 'cases') {
+        loadCaseQuestion();
+    } else if (currentTopic === 'agreement') {
         loadAgreementQuestion();
     }
 }

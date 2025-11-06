@@ -3,46 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Russian Cases Memorizer</title>
+    <title>Russian Grammar Practice</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Russian Cases Memorizer</h1>
-            <p class="subtitle">Practice Prepositional and Accusative Cases</p>
+            <h1>Russian Grammar Practice</h1>
+            <p class="subtitle">Master Russian Word Endings</p>
         </header>
 
-        <div class="controls">
-            <div class="mode-selector">
-                <h3>Practice Mode</h3>
-                <label>
-                    <input type="radio" name="practiceMode" id="casePractice" value="case" checked>
-                    Case Forms (individual words)
-                </label>
-                <label>
-                    <input type="radio" name="practiceMode" id="agreementPractice" value="agreement">
-                    Adjective-Noun Agreement (match gender)
-                </label>
+        <!-- Topic Selection Screen -->
+        <div id="topicSelection" class="topic-selection">
+            <h2>Select Grammar Topic</h2>
+            <div class="topic-grid">
+                <div class="topic-card" data-topic="cases">
+                    <div class="topic-icon">📋</div>
+                    <h3>Cases</h3>
+                    <p>Practice noun and adjective declensions in all 6 cases</p>
+                    <button class="btn btn-topic">Practice Cases</button>
+                </div>
+                <div class="topic-card" data-topic="verbs">
+                    <div class="topic-icon">⚡</div>
+                    <h3>Verb Conjugations</h3>
+                    <p>Practice present, past, and future tense endings</p>
+                    <button class="btn btn-topic">Practice Verbs</button>
+                </div>
+                <div class="topic-card" data-topic="pronouns">
+                    <div class="topic-icon">👤</div>
+                    <h3>Pronouns</h3>
+                    <p>Personal, possessive, and demonstrative pronouns in all cases</p>
+                    <button class="btn btn-topic">Practice Pronouns</button>
+                </div>
+                <div class="topic-card" data-topic="agreement">
+                    <div class="topic-icon">🔗</div>
+                    <h3>Agreement</h3>
+                    <p>Match adjectives to nouns, numbers with nouns</p>
+                    <button class="btn btn-topic">Practice Agreement</button>
+                </div>
             </div>
+        </div>
 
-            <div class="case-selector">
-                <h3>Cases to Practice</h3>
-                <div>
+        <!-- Cases Configuration -->
+        <div id="casesConfig" class="config-screen hidden">
+            <button class="btn btn-back" id="backFromCases">← Back to Topics</button>
+            <h2>Cases Practice</h2>
+
+            <div class="config-section">
+                <h3>Practice Mode</h3>
+                <div class="mode-selector">
                     <label>
-                        <input type="checkbox" id="prepositional" checked>
-                        Prepositional (о/об + Prep.)
+                        <input type="radio" name="casesPracticeMode" value="nouns" checked>
+                        Nouns Only
                     </label>
                     <label>
-                        <input type="checkbox" id="accusative" checked>
-                        Accusative (в/на + Acc.)
+                        <input type="radio" name="casesPracticeMode" value="adjectives">
+                        Adjectives Only
+                    </label>
+                    <label>
+                        <input type="radio" name="casesPracticeMode" value="both">
+                        Both Nouns & Adjectives
                     </label>
                 </div>
             </div>
-            <button id="startBtn" class="btn btn-primary">Start Practice</button>
+
+            <div class="config-section">
+                <h3>Select Cases</h3>
+                <div class="checkbox-grid">
+                    <label>
+                        <input type="checkbox" class="case-checkbox" value="nominative">
+                        Nominative (кто? что?)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="case-checkbox" value="genitive">
+                        Genitive (кого? чего?)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="case-checkbox" value="dative">
+                        Dative (кому? чему?)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="case-checkbox" value="accusative" checked>
+                        Accusative (кого? что?)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="case-checkbox" value="instrumental">
+                        Instrumental (кем? чем?)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="case-checkbox" value="prepositional" checked>
+                        Prepositional (о ком? о чём?)
+                    </label>
+                </div>
+            </div>
+
+            <button id="startCasesPractice" class="btn btn-primary btn-large">Start Practice</button>
         </div>
 
+        <!-- Verbs Configuration -->
+        <div id="verbsConfig" class="config-screen hidden">
+            <button class="btn btn-back" id="backFromVerbs">← Back to Topics</button>
+            <h2>Verb Conjugations Practice</h2>
+
+            <div class="config-section">
+                <h3>Select Tenses</h3>
+                <div class="checkbox-grid">
+                    <label>
+                        <input type="checkbox" class="tense-checkbox" value="present" checked>
+                        Present Tense
+                    </label>
+                    <label>
+                        <input type="checkbox" class="tense-checkbox" value="past">
+                        Past Tense
+                    </label>
+                    <label>
+                        <input type="checkbox" class="tense-checkbox" value="future">
+                        Future Tense
+                    </label>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <h3>Conjugation Type</h3>
+                <div class="checkbox-grid">
+                    <label>
+                        <input type="checkbox" class="conjugation-checkbox" value="first" checked>
+                        First Conjugation (-ешь, -ет, -ем, -ете, -ут/-ют)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="conjugation-checkbox" value="second">
+                        Second Conjugation (-ишь, -ит, -им, -ите, -ат/-ят)
+                    </label>
+                </div>
+            </div>
+
+            <button id="startVerbsPractice" class="btn btn-primary btn-large">Start Practice</button>
+        </div>
+
+        <!-- Pronouns Configuration -->
+        <div id="pronounsConfig" class="config-screen hidden">
+            <button class="btn btn-back" id="backFromPronouns">← Back to Topics</button>
+            <h2>Pronouns Practice</h2>
+
+            <div class="config-section">
+                <h3>Pronoun Type</h3>
+                <div class="checkbox-grid">
+                    <label>
+                        <input type="checkbox" class="pronoun-checkbox" value="personal" checked>
+                        Personal (я, ты, он, она, мы, вы, они)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="pronoun-checkbox" value="possessive">
+                        Possessive (мой, твой, наш, ваш, его, её, их)
+                    </label>
+                    <label>
+                        <input type="checkbox" class="pronoun-checkbox" value="demonstrative">
+                        Demonstrative (этот, тот)
+                    </label>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <h3>Select Cases</h3>
+                <div class="checkbox-grid">
+                    <label>
+                        <input type="checkbox" class="pronoun-case-checkbox" value="nominative">
+                        Nominative
+                    </label>
+                    <label>
+                        <input type="checkbox" class="pronoun-case-checkbox" value="genitive" checked>
+                        Genitive
+                    </label>
+                    <label>
+                        <input type="checkbox" class="pronoun-case-checkbox" value="dative">
+                        Dative
+                    </label>
+                    <label>
+                        <input type="checkbox" class="pronoun-case-checkbox" value="accusative" checked>
+                        Accusative
+                    </label>
+                    <label>
+                        <input type="checkbox" class="pronoun-case-checkbox" value="instrumental">
+                        Instrumental
+                    </label>
+                    <label>
+                        <input type="checkbox" class="pronoun-case-checkbox" value="prepositional">
+                        Prepositional
+                    </label>
+                </div>
+            </div>
+
+            <button id="startPronounsPractice" class="btn btn-primary btn-large">Start Practice</button>
+        </div>
+
+        <!-- Agreement Configuration -->
+        <div id="agreementConfig" class="config-screen hidden">
+            <button class="btn btn-back" id="backFromAgreement">← Back to Topics</button>
+            <h2>Agreement Practice</h2>
+
+            <div class="config-section">
+                <h3>Agreement Type</h3>
+                <div class="mode-selector">
+                    <label>
+                        <input type="radio" name="agreementType" value="adjective-noun" checked>
+                        Adjective-Noun Agreement (gender/case)
+                    </label>
+                    <label>
+                        <input type="radio" name="agreementType" value="number-noun">
+                        Number-Noun Agreement (1 стол, 2 стола, 5 столов)
+                    </label>
+                </div>
+            </div>
+
+            <div class="config-section">
+                <h3>Select Cases</h3>
+                <div class="checkbox-grid">
+                    <label>
+                        <input type="checkbox" class="agreement-case-checkbox" value="nominative">
+                        Nominative
+                    </label>
+                    <label>
+                        <input type="checkbox" class="agreement-case-checkbox" value="genitive">
+                        Genitive
+                    </label>
+                    <label>
+                        <input type="checkbox" class="agreement-case-checkbox" value="dative">
+                        Dative
+                    </label>
+                    <label>
+                        <input type="checkbox" class="agreement-case-checkbox" value="accusative" checked>
+                        Accusative
+                    </label>
+                    <label>
+                        <input type="checkbox" class="agreement-case-checkbox" value="instrumental">
+                        Instrumental
+                    </label>
+                    <label>
+                        <input type="checkbox" class="agreement-case-checkbox" value="prepositional" checked>
+                        Prepositional
+                    </label>
+                </div>
+            </div>
+
+            <button id="startAgreementPractice" class="btn btn-primary btn-large">Start Practice</button>
+        </div>
+
+        <!-- Practice Area (shared by all topics) -->
         <div id="practiceArea" class="practice-area hidden">
+            <button class="btn btn-back" id="backFromPractice">← Back to Configuration</button>
+
             <div class="card">
                 <div class="word-info">
                     <span id="wordType" class="word-type-badge"></span>
@@ -52,7 +261,7 @@
                 </div>
 
                 <div class="question">
-                    <p>What is the correct form?</p>
+                    <p id="questionText">What is the correct form?</p>
                     <div id="optionsContainer" class="options-container"></div>
                 </div>
 
@@ -80,6 +289,7 @@
             </div>
         </div>
 
+        <!-- Grammar Reference Section -->
         <div class="reference-section">
             <h3>Case Endings Reference</h3>
             <div class="reference-grid">
