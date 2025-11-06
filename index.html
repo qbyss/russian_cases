@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Russian Cases Memorizer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Russian Cases Memorizer</h1>
+            <p class="subtitle">Practice Prepositional and Accusative Cases</p>
+        </header>
+
+        <div class="controls">
+            <div class="case-selector">
+                <label>
+                    <input type="checkbox" id="prepositional" checked>
+                    Prepositional (о/об + Prep.)
+                </label>
+                <label>
+                    <input type="checkbox" id="accusative" checked>
+                    Accusative (в/на + Acc.)
+                </label>
+            </div>
+            <button id="startBtn" class="btn btn-primary">Start Practice</button>
+        </div>
+
+        <div id="practiceArea" class="practice-area hidden">
+            <div class="card">
+                <div class="word-info">
+                    <h2 id="baseWord" class="base-word"></h2>
+                    <p id="translation" class="translation"></p>
+                    <p id="caseType" class="case-type"></p>
+                </div>
+
+                <div class="question">
+                    <p>What is the correct form?</p>
+                    <div id="optionsContainer" class="options-container"></div>
+                </div>
+
+                <div id="feedback" class="feedback hidden"></div>
+
+                <div class="actions">
+                    <button id="nextBtn" class="btn btn-secondary hidden">Next Word</button>
+                    <button id="showAnswerBtn" class="btn btn-hint">Show Answer</button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-label">Correct:</span>
+                    <span id="correctCount" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Total:</span>
+                    <span id="totalCount" class="stat-value">0</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">Accuracy:</span>
+                    <span id="accuracy" class="stat-value">0%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reference-section">
+            <h3>Case Endings Reference</h3>
+            <div class="reference-grid">
+                <div class="reference-card">
+                    <h4>Prepositional Case</h4>
+                    <p class="usage">Usage: о/об + Prep. (about, concerning)</p>
+                    <ul>
+                        <li><strong>Masculine:</strong> -е / -и (if stem ends in -ий, -ь)</li>
+                        <li><strong>Feminine:</strong> -е / -и (if stem ends in -ия, -ь)</li>
+                        <li><strong>Neuter:</strong> -е / -и (if stem ends in -ие)</li>
+                    </ul>
+                </div>
+                <div class="reference-card">
+                    <h4>Accusative Case</h4>
+                    <p class="usage">Usage: в/на + Acc. (to, into)</p>
+                    <ul>
+                        <li><strong>Masculine (inanimate):</strong> = Nominative</li>
+                        <li><strong>Masculine (animate):</strong> -а / -я</li>
+                        <li><strong>Feminine:</strong> -у / -ю</li>
+                        <li><strong>Neuter:</strong> = Nominative</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
