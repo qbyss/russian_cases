@@ -120,6 +120,28 @@ h1 {
     margin-bottom: 30px;
     padding-bottom: 20px;
     border-bottom: 2px solid #e5e7eb;
+    position: relative;
+}
+
+.word-type-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.word-type-badge.noun {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.word-type-badge.adjective {
+    background: #fef3c7;
+    color: #92400e;
 }
 
 .base-word {

@@ -9,7 +9,8 @@ const russianNouns = [
         correctForm: "столе",
         preposition: "о",
         fullExample: "о столе (about the table)",
-        wrongOptions: ["столу", "стола", "столом"]
+        wrongOptions: ["столу", "стола", "столом"],
+        wordType: "noun"
     },
     {
         base: "книга",
@@ -225,6 +226,312 @@ const russianNouns = [
     }
 ];
 
+// Russian adjective data with cases
+const russianAdjectives = [
+    // Prepositional case - Masculine
+    {
+        base: "новый",
+        translation: "new",
+        gender: "masculine",
+        caseType: "prepositional",
+        correctForm: "новом",
+        preposition: "о",
+        fullExample: "о новом (about the new one)",
+        wrongOptions: ["новый", "новую", "новое"],
+        wordType: "adjective"
+    },
+    {
+        base: "старый",
+        translation: "old",
+        gender: "masculine",
+        caseType: "prepositional",
+        correctForm: "старом",
+        preposition: "о",
+        fullExample: "о старом (about the old one)",
+        wrongOptions: ["старый", "старую", "старое"],
+        wordType: "adjective"
+    },
+    {
+        base: "большой",
+        translation: "big",
+        gender: "masculine",
+        caseType: "prepositional",
+        correctForm: "большом",
+        preposition: "о",
+        fullExample: "о большом (about the big one)",
+        wrongOptions: ["большой", "большую", "большое"],
+        wordType: "adjective"
+    },
+    {
+        base: "красивый",
+        translation: "beautiful",
+        gender: "masculine",
+        caseType: "prepositional",
+        correctForm: "красивом",
+        preposition: "о",
+        fullExample: "о красивом (about the beautiful one)",
+        wrongOptions: ["красивый", "красивую", "красивое"],
+        wordType: "adjective"
+    },
+
+    // Prepositional case - Feminine
+    {
+        base: "новая",
+        translation: "new",
+        gender: "feminine",
+        caseType: "prepositional",
+        correctForm: "новой",
+        preposition: "о",
+        fullExample: "о новой (about the new one)",
+        wrongOptions: ["новая", "новую", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старая",
+        translation: "old",
+        gender: "feminine",
+        caseType: "prepositional",
+        correctForm: "старой",
+        preposition: "о",
+        fullExample: "о старой (about the old one)",
+        wrongOptions: ["старая", "старую", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "большая",
+        translation: "big",
+        gender: "feminine",
+        caseType: "prepositional",
+        correctForm: "большой",
+        preposition: "о",
+        fullExample: "о большой (about the big one)",
+        wrongOptions: ["большая", "большую", "большом"],
+        wordType: "adjective"
+    },
+    {
+        base: "красивая",
+        translation: "beautiful",
+        gender: "feminine",
+        caseType: "prepositional",
+        correctForm: "красивой",
+        preposition: "о",
+        fullExample: "о красивой (about the beautiful one)",
+        wrongOptions: ["красивая", "красивую", "красивом"],
+        wordType: "adjective"
+    },
+
+    // Prepositional case - Neuter
+    {
+        base: "новое",
+        translation: "new",
+        gender: "neuter",
+        caseType: "prepositional",
+        correctForm: "новом",
+        preposition: "о",
+        fullExample: "о новом (about the new one)",
+        wrongOptions: ["новое", "новую", "новой"],
+        wordType: "adjective"
+    },
+    {
+        base: "старое",
+        translation: "old",
+        gender: "neuter",
+        caseType: "prepositional",
+        correctForm: "старом",
+        preposition: "о",
+        fullExample: "о старом (about the old one)",
+        wrongOptions: ["старое", "старую", "старой"],
+        wordType: "adjective"
+    },
+
+    // Accusative case - Masculine (inanimate = nominative)
+    {
+        base: "новый",
+        translation: "new",
+        gender: "masculine",
+        caseType: "accusative",
+        correctForm: "новый",
+        preposition: "в",
+        fullExample: "в новый (into the new one)",
+        wrongOptions: ["новом", "новую", "нового"],
+        wordType: "adjective"
+    },
+    {
+        base: "старый",
+        translation: "old",
+        gender: "masculine",
+        caseType: "accusative",
+        correctForm: "старый",
+        preposition: "в",
+        fullExample: "в старый (into the old one)",
+        wrongOptions: ["старом", "старую", "старого"],
+        wordType: "adjective"
+    },
+    {
+        base: "большой",
+        translation: "big",
+        gender: "masculine",
+        caseType: "accusative",
+        correctForm: "большой",
+        preposition: "на",
+        fullExample: "на большой (onto the big one)",
+        wrongOptions: ["большом", "большую", "большого"],
+        wordType: "adjective"
+    },
+    {
+        base: "синий",
+        translation: "blue",
+        gender: "masculine",
+        caseType: "accusative",
+        correctForm: "синий",
+        preposition: "в",
+        fullExample: "в синий (into the blue one)",
+        wrongOptions: ["синем", "синюю", "синего"],
+        wordType: "adjective"
+    },
+
+    // Accusative case - Feminine (-ую/-юю)
+    {
+        base: "новая",
+        translation: "new",
+        gender: "feminine",
+        caseType: "accusative",
+        correctForm: "новую",
+        preposition: "в",
+        fullExample: "в новую (into the new one)",
+        wrongOptions: ["новая", "новой", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старая",
+        translation: "old",
+        gender: "feminine",
+        caseType: "accusative",
+        correctForm: "старую",
+        preposition: "в",
+        fullExample: "в старую (into the old one)",
+        wrongOptions: ["старая", "старой", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "большая",
+        translation: "big",
+        gender: "feminine",
+        caseType: "accusative",
+        correctForm: "большую",
+        preposition: "на",
+        fullExample: "на большую (onto the big one)",
+        wrongOptions: ["большая", "большой", "большом"],
+        wordType: "adjective"
+    },
+    {
+        base: "красивая",
+        translation: "beautiful",
+        gender: "feminine",
+        caseType: "accusative",
+        correctForm: "красивую",
+        preposition: "в",
+        fullExample: "в красивую (into the beautiful one)",
+        wrongOptions: ["красивая", "красивой", "красивом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синяя",
+        translation: "blue",
+        gender: "feminine",
+        caseType: "accusative",
+        correctForm: "синюю",
+        preposition: "в",
+        fullExample: "в синюю (into the blue one)",
+        wrongOptions: ["синяя", "синей", "синем"],
+        wordType: "adjective"
+    },
+    {
+        base: "хорошая",
+        translation: "good",
+        gender: "feminine",
+        caseType: "accusative",
+        correctForm: "хорошую",
+        preposition: "в",
+        fullExample: "в хорошую (into the good one)",
+        wrongOptions: ["хорошая", "хорошей", "хорошем"],
+        wordType: "adjective"
+    },
+
+    // Accusative case - Neuter (= nominative)
+    {
+        base: "новое",
+        translation: "new",
+        gender: "neuter",
+        caseType: "accusative",
+        correctForm: "новое",
+        preposition: "в",
+        fullExample: "в новое (into the new one)",
+        wrongOptions: ["новом", "новую", "новой"],
+        wordType: "adjective"
+    },
+    {
+        base: "старое",
+        translation: "old",
+        gender: "neuter",
+        caseType: "accusative",
+        correctForm: "старое",
+        preposition: "в",
+        fullExample: "в старое (into the old one)",
+        wrongOptions: ["старом", "старую", "старой"],
+        wordType: "adjective"
+    },
+    {
+        base: "синее",
+        translation: "blue",
+        gender: "neuter",
+        caseType: "accusative",
+        correctForm: "синее",
+        preposition: "в",
+        fullExample: "в синее (into the blue one)",
+        wrongOptions: ["синем", "синюю", "синей"],
+        wordType: "adjective"
+    },
+
+    // Additional Prepositional adjectives
+    {
+        base: "маленький",
+        translation: "small",
+        gender: "masculine",
+        caseType: "prepositional",
+        correctForm: "маленьком",
+        preposition: "о",
+        fullExample: "о маленьком (about the small one)",
+        wrongOptions: ["маленький", "маленькую", "маленькое"],
+        wordType: "adjective"
+    },
+    {
+        base: "хороший",
+        translation: "good",
+        gender: "masculine",
+        caseType: "prepositional",
+        correctForm: "хорошем",
+        preposition: "о",
+        fullExample: "о хорошем (about the good one)",
+        wrongOptions: ["хороший", "хорошую", "хорошее"],
+        wordType: "adjective"
+    },
+    {
+        base: "синий",
+        translation: "blue",
+        gender: "masculine",
+        caseType: "prepositional",
+        correctForm: "синем",
+        preposition: "о",
+        fullExample: "о синем (about the blue one)",
+        wrongOptions: ["синий", "синюю", "синее"],
+        wordType: "adjective"
+    }
+];
+
+// Combine all words
+const allWords = [...russianNouns, ...russianAdjectives];
+
 // Application state
 let currentWord = null;
 let selectedCases = [];
@@ -272,7 +579,7 @@ function startPractice() {
     }
 
     // Filter words based on selected cases
-    availableWords = russianNouns.filter(noun => selectedCases.includes(noun.caseType));
+    availableWords = allWords.filter(word => selectedCases.includes(word.caseType));
 
     // Shuffle the words
     shuffleArray(availableWords);
@@ -295,7 +602,7 @@ function startPractice() {
 function loadNextWord() {
     if (availableWords.length === 0) {
         // Reshuffle when we run out
-        availableWords = russianNouns.filter(noun => selectedCases.includes(noun.caseType));
+        availableWords = allWords.filter(word => selectedCases.includes(word.caseType));
         shuffleArray(availableWords);
     }
 
@@ -305,6 +612,12 @@ function loadNextWord() {
     baseWordEl.textContent = currentWord.base;
     translationEl.textContent = `"${currentWord.translation}"`;
     caseTypeEl.textContent = `${currentWord.caseType} case - ${currentWord.preposition} + ?`;
+
+    // Update word type badge
+    const wordTypeEl = document.getElementById('wordType');
+    const wordType = currentWord.wordType || 'noun'; // Default to noun if not specified
+    wordTypeEl.textContent = wordType;
+    wordTypeEl.className = `word-type-badge ${wordType}`;
 
     // Clear feedback
     feedbackEl.classList.add('hidden');

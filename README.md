@@ -1,14 +1,15 @@
 # Russian Cases Memorizer
 
-A web application to help you memorize Russian noun cases, focusing on Prepositional and Accusative cases.
+A web application to help you memorize Russian cases for nouns and adjectives, focusing on Prepositional and Accusative cases.
 
 ## Features
 
-- **Interactive Quiz**: Practice identifying the correct case forms of Russian nouns
+- **Interactive Quiz**: Practice identifying the correct case forms of Russian nouns and adjectives
 - **Multiple Cases**: Focus on Prepositional and/or Accusative cases
-- **Visual Reference**: Built-in case endings reference guide
+- **Word Type Badges**: Visual distinction between nouns and adjectives
+- **Visual Reference**: Built-in case endings reference guide for both nouns and adjectives
 - **Progress Tracking**: Track your accuracy and improvement over time
-- **Example Words**: Includes 23+ Russian nouns with translations
+- **Example Words**: Includes 23 Russian nouns and 27 Russian adjectives with translations
 
 ## How to Use
 
@@ -39,13 +40,21 @@ A web application to help you memorize Russian noun cases, focusing on Prepositi
 ## Case Overview
 
 ### Prepositional Case
+
+**Nouns:**
 - **Usage**: о/об + Prepositional (about, concerning)
+- **Endings**: Masculine/Feminine/Neuter: -е / -и
+
+**Adjectives:**
+- **Usage**: о/об + Prepositional
 - **Endings**:
-  - Masculine: -е / -и
-  - Feminine: -е / -и
-  - Neuter: -е / -и
+  - Masculine: -ом / -ем (новый → новом)
+  - Feminine: -ой / -ей (новая → новой)
+  - Neuter: -ом / -ем (новое → новом)
 
 ### Accusative Case
+
+**Nouns:**
 - **Usage**: в/на + Accusative (to, into)
 - **Endings**:
   - Masculine (inanimate): = Nominative
@@ -53,19 +62,32 @@ A web application to help you memorize Russian noun cases, focusing on Prepositi
   - Feminine: -у / -ю
   - Neuter: = Nominative
 
+**Adjectives:**
+- **Usage**: в/на + Accusative
+- **Endings**:
+  - Masculine (inanimate): = Nominative (новый)
+  - Masculine (animate): -ого / -его (нового)
+  - Feminine: -ую / -юю (новая → новую)
+  - Neuter: = Nominative (новое)
+
 ## Example Words Included
 
-**Prepositional**: стол, книга, окно, дом, школа, музей, море, город, страна, работа
+**Nouns:**
+- Prepositional: стол, книга, окно, дом, школа, музей, море, город, страна, работа
+- Accusative: стол, книга, окно, дом, школа, музей, море, город, комната, письмо, сумка, парк
 
-**Accusative**: стол, книга, окно, дом, школа, музей, море, город, комната, письмо, сумка, парк
+**Adjectives:**
+- Prepositional: новый/новая/новое, старый/старая/старое, большой/большая, красивый/красивая, маленький, хороший, синий
+- Accusative: новый/новая/новое, старый/старая/старое, большой/большая, синий/синяя/синее, красивая, хорошая
 
 ## Tips for Learning
 
 1. Start with one case at a time if you're a beginner
-2. Pay attention to the gender of nouns (masculine, feminine, neuter)
-3. Notice patterns in the endings
-4. Use the "Show Answer" button if you're stuck - learning is more important than perfect scores
-5. Practice regularly - even 5-10 minutes a day helps!
+2. Pay attention to the gender of words (masculine, feminine, neuter)
+3. Notice patterns in the endings - adjectives and nouns have different patterns
+4. Adjectives must agree with nouns in gender, so practice recognizing the gender from the base form
+5. Use the "Show Answer" button if you're stuck - learning is more important than perfect scores
+6. Practice regularly - even 5-10 minutes a day helps!
 
 ## Technical Details
 
