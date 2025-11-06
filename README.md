@@ -4,9 +4,11 @@ A web application to help you memorize Russian cases for nouns and adjectives, f
 
 ## Features
 
-- **Interactive Quiz**: Practice identifying the correct case forms of Russian nouns and adjectives
+- **Two Practice Modes**:
+  - **Case Forms**: Practice individual word case forms (nouns and adjectives)
+  - **Adjective-Noun Agreement**: Match adjective endings to noun gender
 - **Multiple Cases**: Focus on Prepositional and/or Accusative cases
-- **Word Type Badges**: Visual distinction between nouns and adjectives
+- **Word Type Badges**: Visual distinction between nouns, adjectives, and agreement exercises
 - **Visual Reference**: Built-in case endings reference guide for both nouns and adjectives
 - **Progress Tracking**: Track your accuracy and improvement over time
 - **Example Words**: Includes 23 Russian nouns and 27 Russian adjectives with translations
@@ -17,23 +19,28 @@ A web application to help you memorize Russian cases for nouns and adjectives, f
    - Open `index.html` in your web browser
    - No installation or build process required!
 
-2. **Select Cases to Practice**
+2. **Select Practice Mode**
+   - **Case Forms**: Practice individual words (nouns or adjectives)
+   - **Adjective-Noun Agreement**: Practice matching adjective endings to noun gender
+     - You'll see a noun + adjective pair and need to select the correct adjective form that matches the noun's gender
+
+3. **Select Cases to Practice**
    - Check the boxes for the cases you want to practice:
      - Prepositional Case (о/об + Prep.)
      - Accusative Case (в/на + Acc.)
    - You can practice one or both cases at the same time
 
-3. **Start Practicing**
+4. **Start Practicing**
    - Click "Start Practice" to begin
-   - You'll see a Russian word with its English translation
+   - You'll see a Russian word (or word pair) with its English translation
    - Select the correct case form from the multiple choice options
    - Get immediate feedback on your answer
 
-4. **Track Your Progress**
+5. **Track Your Progress**
    - View your statistics at the bottom of the practice area
    - See your correct answers, total attempts, and accuracy percentage
 
-5. **Use the Reference Guide**
+6. **Use the Reference Guide**
    - Scroll down to see the case endings reference
    - Review the rules for both Prepositional and Accusative cases
 
@@ -80,14 +87,31 @@ A web application to help you memorize Russian cases for nouns and adjectives, f
 - Prepositional: новый/новая/новое, старый/старая/старое, большой/большая, красивый/красивая, маленький, хороший, синий
 - Accusative: новый/новая/новое, старый/старая/старое, большой/большая, синий/синяя/синее, красивая, хорошая
 
+## Understanding the Practice Modes
+
+### Case Forms Mode
+Practice the declension of individual words. This helps you learn:
+- How noun endings change based on case
+- How adjective endings change based on case
+- Pattern recognition for different word types
+
+### Adjective-Noun Agreement Mode
+Practice matching adjective endings to noun gender. This is crucial because:
+- In Russian, adjectives must agree with nouns in gender, number, and case
+- Example: "новый дом" (new house - masculine) vs "новая книга" (new book - feminine)
+- The same adjective has different forms depending on the noun it modifies
+- This mode helps you practice selecting the correct adjective form based on the noun's gender
+
 ## Tips for Learning
 
-1. Start with one case at a time if you're a beginner
-2. Pay attention to the gender of words (masculine, feminine, neuter)
-3. Notice patterns in the endings - adjectives and nouns have different patterns
-4. Adjectives must agree with nouns in gender, so practice recognizing the gender from the base form
-5. Use the "Show Answer" button if you're stuck - learning is more important than perfect scores
-6. Practice regularly - even 5-10 minutes a day helps!
+1. Start with **Case Forms** mode to learn individual word patterns
+2. Move to **Adjective-Noun Agreement** mode once you're comfortable with endings
+3. Start with one case at a time if you're a beginner
+4. Pay attention to the gender of words (masculine, feminine, neuter)
+5. Notice patterns in the endings - adjectives and nouns have different patterns
+6. Adjectives must agree with nouns in gender, so practice recognizing the gender from the base form
+7. Use the "Show Answer" button if you're stuck - learning is more important than perfect scores
+8. Practice regularly - even 5-10 minutes a day helps!
 
 ## Technical Details
 

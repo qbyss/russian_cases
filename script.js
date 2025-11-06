@@ -538,10 +538,14 @@ let selectedCases = [];
 let correctCount = 0;
 let totalCount = 0;
 let availableWords = [];
+let practiceMode = 'case'; // 'case' or 'agreement'
+let currentAgreementQuestion = null;
 
 // DOM elements
 const prepositionalCheckbox = document.getElementById('prepositional');
 const accusativeCheckbox = document.getElementById('accusative');
+const casePracticeRadio = document.getElementById('casePractice');
+const agreementPracticeRadio = document.getElementById('agreementPractice');
 const startBtn = document.getElementById('startBtn');
 const practiceArea = document.getElementById('practiceArea');
 const baseWordEl = document.getElementById('baseWord');
@@ -578,11 +582,19 @@ function startPractice() {
         return;
     }
 
-    // Filter words based on selected cases
-    availableWords = allWords.filter(word => selectedCases.includes(word.caseType));
+    // Get selected practice mode
+    practiceMode = casePracticeRadio.checked ? 'case' : 'agreement';
 
-    // Shuffle the words
-    shuffleArray(availableWords);
+    if (practiceMode === 'case') {
+        // Filter words based on selected cases
+        availableWords = allWords.filter(word => selectedCases.includes(word.caseType));
+        shuffleArray(availableWords);
+    } else {
+        // For agreement mode, prepare noun-adjective combinations
+        const nouns = russianNouns.filter(noun => selectedCases.includes(noun.caseType));
+        shuffleArray(nouns);
+        availableWords = nouns;
+    }
 
     // Reset stats
     correctCount = 0;
@@ -600,6 +612,14 @@ function startPractice() {
 }
 
 function loadNextWord() {
+    if (practiceMode === 'case') {
+        loadCaseQuestion();
+    } else {
+        loadAgreementQuestion();
+    }
+}
+
+function loadCaseQuestion() {
     if (availableWords.length === 0) {
         // Reshuffle when we run out
         availableWords = allWords.filter(word => selectedCases.includes(word.caseType));
@@ -607,6 +627,7 @@ function loadNextWord() {
     }
 
     currentWord = availableWords.pop();
+    currentAgreementQuestion = null;
 
     // Update word display
     baseWordEl.textContent = currentWord.base;
@@ -631,6 +652,82 @@ function loadNextWord() {
     createOptions();
 }
 
+function loadAgreementQuestion() {
+    if (availableWords.length === 0) {
+        // Reshuffle when we run out
+        const nouns = russianNouns.filter(noun => selectedCases.includes(noun.caseType));
+        shuffleArray(nouns);
+        availableWords = nouns;
+    }
+
+    const noun = availableWords.pop();
+
+    // Pick a random adjective base (masculine form)
+    const adjectiveBases = [
+        { base: "новый", translation: "new" },
+        { base: "старый", translation: "old" },
+        { base: "большой", translation: "big" },
+        { base: "красивый", translation: "beautiful" },
+        { base: "маленький", translation: "small" },
+        { base: "хороший", translation: "good" },
+        { base: "синий", translation: "blue" }
+    ];
+
+    const adjBase = adjectiveBases[Math.floor(Math.random() * adjectiveBases.length)];
+
+    // Get all forms of this adjective in the selected case
+    const adjForms = russianAdjectives.filter(adj =>
+        adj.translation === adjBase.translation &&
+        adj.caseType === noun.caseType
+    );
+
+    // Find the correct form that matches the noun's gender
+    const correctAdj = adjForms.find(adj => adj.gender === noun.gender);
+
+    if (!correctAdj) {
+        // Fallback - shouldn't happen if data is complete
+        loadAgreementQuestion();
+        return;
+    }
+
+    // Create wrong options from other genders
+    const wrongOptions = adjForms
+        .filter(adj => adj.gender !== noun.gender)
+        .map(adj => adj.correctForm);
+
+    currentAgreementQuestion = {
+        noun: noun,
+        adjective: adjBase,
+        correctForm: correctAdj.correctForm,
+        wrongOptions: wrongOptions,
+        caseType: noun.caseType,
+        preposition: noun.preposition
+    };
+
+    currentWord = null;
+
+    // Update display for agreement mode
+    baseWordEl.innerHTML = `${adjBase.base} <span style="color: #764ba2;">+</span> ${noun.base}`;
+    translationEl.textContent = `"${adjBase.translation} ${noun.translation}" (${noun.gender})`;
+    caseTypeEl.textContent = `${noun.caseType} case - Match adjective to noun gender`;
+
+    // Update word type badge
+    const wordTypeEl = document.getElementById('wordType');
+    wordTypeEl.textContent = 'agreement';
+    wordTypeEl.className = `word-type-badge agreement`;
+
+    // Clear feedback
+    feedbackEl.classList.add('hidden');
+    feedbackEl.classList.remove('correct', 'incorrect');
+
+    // Hide next button, show hint button
+    nextBtn.classList.add('hidden');
+    showAnswerBtn.classList.remove('hidden');
+
+    // Create options
+    createAgreementOptions();
+}
+
 function createOptions() {
     optionsContainer.innerHTML = '';
 
@@ -643,6 +740,22 @@ function createOptions() {
         btn.className = 'option-btn';
         btn.textContent = option;
         btn.addEventListener('click', () => selectOption(btn, option));
+        optionsContainer.appendChild(btn);
+    });
+}
+
+function createAgreementOptions() {
+    optionsContainer.innerHTML = '';
+
+    // Combine correct answer with wrong options and shuffle
+    const allOptions = [currentAgreementQuestion.correctForm, ...currentAgreementQuestion.wrongOptions];
+    shuffleArray(allOptions);
+
+    allOptions.forEach(option => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = option;
+        btn.addEventListener('click', () => selectAgreementOption(btn, option));
         optionsContainer.appendChild(btn);
     });
 }
@@ -680,16 +793,63 @@ function selectOption(button, selectedAnswer) {
     updateStats();
 }
 
+function selectAgreementOption(button, selectedAnswer) {
+    // Disable all buttons
+    const allButtons = optionsContainer.querySelectorAll('.option-btn');
+    allButtons.forEach(btn => btn.disabled = true);
+
+    // Check answer
+    const isCorrect = selectedAnswer === currentAgreementQuestion.correctForm;
+
+    totalCount++;
+    if (isCorrect) {
+        correctCount++;
+        button.classList.add('correct');
+        feedbackEl.textContent = `Correct! ${currentAgreementQuestion.preposition} ${currentAgreementQuestion.adjective.base.replace(/ый$|ой$|ий$/, '')}${currentAgreementQuestion.correctForm.match(/[а-я]+$/)[0]} ${currentAgreementQuestion.noun.correctForm}`;
+        feedbackEl.classList.add('correct');
+    } else {
+        button.classList.add('incorrect');
+        // Highlight the correct answer
+        allButtons.forEach(btn => {
+            if (btn.textContent === currentAgreementQuestion.correctForm) {
+                btn.classList.add('correct');
+            }
+        });
+        feedbackEl.textContent = `Incorrect. The correct answer is: ${currentAgreementQuestion.preposition} ${currentAgreementQuestion.correctForm} ${currentAgreementQuestion.noun.correctForm}`;
+        feedbackEl.classList.add('incorrect');
+    }
+
+    feedbackEl.classList.remove('hidden');
+    showAnswerBtn.classList.add('hidden');
+    nextBtn.classList.remove('hidden');
+
+    updateStats();
+}
+
 function showAnswer() {
     const allButtons = optionsContainer.querySelectorAll('.option-btn');
-    allButtons.forEach(btn => {
-        btn.disabled = true;
-        if (btn.textContent === currentWord.correctForm) {
-            btn.classList.add('correct');
-        }
-    });
 
-    feedbackEl.textContent = `Answer: ${currentWord.preposition} ${currentWord.correctForm}`;
+    if (practiceMode === 'case') {
+        allButtons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.textContent === currentWord.correctForm) {
+                btn.classList.add('correct');
+            }
+        });
+
+        feedbackEl.textContent = `Answer: ${currentWord.preposition} ${currentWord.correctForm}`;
+    } else {
+        // Agreement mode
+        allButtons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.textContent === currentAgreementQuestion.correctForm) {
+                btn.classList.add('correct');
+            }
+        });
+
+        feedbackEl.textContent = `Answer: ${currentAgreementQuestion.preposition} ${currentAgreementQuestion.correctForm} ${currentAgreementQuestion.noun.correctForm}`;
+    }
+
     feedbackEl.classList.add('correct');
     feedbackEl.classList.remove('hidden');
 

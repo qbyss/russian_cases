@@ -14,15 +14,30 @@
         </header>
 
         <div class="controls">
+            <div class="mode-selector">
+                <h3>Practice Mode</h3>
+                <label>
+                    <input type="radio" name="practiceMode" id="casePractice" value="case" checked>
+                    Case Forms (individual words)
+                </label>
+                <label>
+                    <input type="radio" name="practiceMode" id="agreementPractice" value="agreement">
+                    Adjective-Noun Agreement (match gender)
+                </label>
+            </div>
+
             <div class="case-selector">
-                <label>
-                    <input type="checkbox" id="prepositional" checked>
-                    Prepositional (о/об + Prep.)
-                </label>
-                <label>
-                    <input type="checkbox" id="accusative" checked>
-                    Accusative (в/на + Acc.)
-                </label>
+                <h3>Cases to Practice</h3>
+                <div>
+                    <label>
+                        <input type="checkbox" id="prepositional" checked>
+                        Prepositional (о/об + Prep.)
+                    </label>
+                    <label>
+                        <input type="checkbox" id="accusative" checked>
+                        Accusative (в/на + Acc.)
+                    </label>
+                </div>
             </div>
             <button id="startBtn" class="btn btn-primary">Start Practice</button>
         </div>

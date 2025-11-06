@@ -42,10 +42,47 @@ h1 {
     margin-bottom: 30px;
 }
 
+.mode-selector {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.mode-selector h3,
+.case-selector h3 {
+    font-size: 1rem;
+    color: #764ba2;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.mode-selector label {
+    display: block;
+    padding: 10px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+}
+
+.mode-selector label:hover {
+    background: #f3f4f6;
+}
+
+.mode-selector input[type="radio"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
 .case-selector {
+    margin-bottom: 20px;
+}
+
+.case-selector > div {
     display: flex;
     gap: 30px;
-    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
@@ -142,6 +179,11 @@ h1 {
 .word-type-badge.adjective {
     background: #fef3c7;
     color: #92400e;
+}
+
+.word-type-badge.agreement {
+    background: #d1fae5;
+    color: #065f46;
 }
 
 .base-word {
