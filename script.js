@@ -1669,6 +1669,421 @@ const russianAdjectives = [
     }
 ];
 
+// Russian verb conjugation data
+const russianVerbs = [
+    // PRESENT TENSE - First Conjugation (-ать, -ять, -еть)
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "present",
+        conjugationType: "first",
+        person: "я",
+        correctForm: "работаю",
+        wrongOptions: ["работаешь", "работает", "работаем"],
+        fullExample: "я работаю (I work)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "present",
+        conjugationType: "first",
+        person: "ты",
+        correctForm: "работаешь",
+        wrongOptions: ["работаю", "работает", "работаем"],
+        fullExample: "ты работаешь (you work)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "present",
+        conjugationType: "first",
+        person: "он/она",
+        correctForm: "работает",
+        wrongOptions: ["работаю", "работаешь", "работаем"],
+        fullExample: "он/она работает (he/she works)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "present",
+        conjugationType: "first",
+        person: "мы",
+        correctForm: "работаем",
+        wrongOptions: ["работаю", "работаешь", "работают"],
+        fullExample: "мы работаем (we work)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "present",
+        conjugationType: "first",
+        person: "вы",
+        correctForm: "работаете",
+        wrongOptions: ["работаю", "работает", "работают"],
+        fullExample: "вы работаете (you work)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "present",
+        conjugationType: "first",
+        person: "они",
+        correctForm: "работают",
+        wrongOptions: ["работаю", "работает", "работаем"],
+        fullExample: "они работают (they work)"
+    },
+
+    // делать - to do/make
+    {
+        infinitive: "делать",
+        translation: "to do/make",
+        tense: "present",
+        conjugationType: "first",
+        person: "я",
+        correctForm: "делаю",
+        wrongOptions: ["делаешь", "делает", "делаем"],
+        fullExample: "я делаю (I do)"
+    },
+    {
+        infinitive: "делать",
+        translation: "to do/make",
+        tense: "present",
+        conjugationType: "first",
+        person: "ты",
+        correctForm: "делаешь",
+        wrongOptions: ["делаю", "делает", "делают"],
+        fullExample: "ты делаешь (you do)"
+    },
+    {
+        infinitive: "делать",
+        translation: "to do/make",
+        tense: "present",
+        conjugationType: "first",
+        person: "он/она",
+        correctForm: "делает",
+        wrongOptions: ["делаю", "делаешь", "делают"],
+        fullExample: "он/она делает (he/she does)"
+    },
+    {
+        infinitive: "делать",
+        translation: "to do/make",
+        tense: "present",
+        conjugationType: "first",
+        person: "они",
+        correctForm: "делают",
+        wrongOptions: ["делаю", "делает", "делаем"],
+        fullExample: "они делают (they do)"
+    },
+
+    // читать - to read
+    {
+        infinitive: "читать",
+        translation: "to read",
+        tense: "present",
+        conjugationType: "first",
+        person: "я",
+        correctForm: "читаю",
+        wrongOptions: ["читаешь", "читает", "читаем"],
+        fullExample: "я читаю (I read)"
+    },
+    {
+        infinitive: "читать",
+        translation: "to read",
+        tense: "present",
+        conjugationType: "first",
+        person: "ты",
+        correctForm: "читаешь",
+        wrongOptions: ["читаю", "читает", "читают"],
+        fullExample: "ты читаешь (you read)"
+    },
+    {
+        infinitive: "читать",
+        translation: "to read",
+        tense: "present",
+        conjugationType: "first",
+        person: "он/она",
+        correctForm: "читает",
+        wrongOptions: ["читаю", "читаешь", "читают"],
+        fullExample: "он/она читает (he/she reads)"
+    },
+    {
+        infinitive: "читать",
+        translation: "to read",
+        tense: "present",
+        conjugationType: "first",
+        person: "они",
+        correctForm: "читают",
+        wrongOptions: ["читаю", "читает", "читаем"],
+        fullExample: "они читают (they read)"
+    },
+
+    // PRESENT TENSE - Second Conjugation (-ить)
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "present",
+        conjugationType: "second",
+        person: "я",
+        correctForm: "говорю",
+        wrongOptions: ["говоришь", "говорит", "говорим"],
+        fullExample: "я говорю (I speak)"
+    },
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "present",
+        conjugationType: "second",
+        person: "ты",
+        correctForm: "говоришь",
+        wrongOptions: ["говорю", "говорит", "говорят"],
+        fullExample: "ты говоришь (you speak)"
+    },
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "present",
+        conjugationType: "second",
+        person: "он/она",
+        correctForm: "говорит",
+        wrongOptions: ["говорю", "говоришь", "говорят"],
+        fullExample: "он/она говорит (he/she speaks)"
+    },
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "present",
+        conjugationType: "second",
+        person: "мы",
+        correctForm: "говорим",
+        wrongOptions: ["говорю", "говорит", "говорят"],
+        fullExample: "мы говорим (we speak)"
+    },
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "present",
+        conjugationType: "second",
+        person: "вы",
+        correctForm: "говорите",
+        wrongOptions: ["говорю", "говорит", "говорят"],
+        fullExample: "вы говорите (you speak)"
+    },
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "present",
+        conjugationType: "second",
+        person: "они",
+        correctForm: "говорят",
+        wrongOptions: ["говорю", "говорит", "говорим"],
+        fullExample: "они говорят (they speak)"
+    },
+
+    // видеть - to see
+    {
+        infinitive: "видеть",
+        translation: "to see",
+        tense: "present",
+        conjugationType: "second",
+        person: "я",
+        correctForm: "вижу",
+        wrongOptions: ["видишь", "видит", "видим"],
+        fullExample: "я вижу (I see)"
+    },
+    {
+        infinitive: "видеть",
+        translation: "to see",
+        tense: "present",
+        conjugationType: "second",
+        person: "ты",
+        correctForm: "видишь",
+        wrongOptions: ["вижу", "видит", "видят"],
+        fullExample: "ты видишь (you see)"
+    },
+    {
+        infinitive: "видеть",
+        translation: "to see",
+        tense: "present",
+        conjugationType: "second",
+        person: "он/она",
+        correctForm: "видит",
+        wrongOptions: ["вижу", "видишь", "видят"],
+        fullExample: "он/она видит (he/she sees)"
+    },
+    {
+        infinitive: "видеть",
+        translation: "to see",
+        tense: "present",
+        conjugationType: "second",
+        person: "они",
+        correctForm: "видят",
+        wrongOptions: ["вижу", "видит", "видим"],
+        fullExample: "они видят (they see)"
+    },
+
+    // PAST TENSE - Gender agreement
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "past",
+        conjugationType: "first",
+        person: "он",
+        gender: "masculine",
+        correctForm: "работал",
+        wrongOptions: ["работала", "работало", "работали"],
+        fullExample: "он работал (he worked)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "past",
+        conjugationType: "first",
+        person: "она",
+        gender: "feminine",
+        correctForm: "работала",
+        wrongOptions: ["работал", "работало", "работали"],
+        fullExample: "она работала (she worked)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "past",
+        conjugationType: "first",
+        person: "оно",
+        gender: "neuter",
+        correctForm: "работало",
+        wrongOptions: ["работал", "работала", "работали"],
+        fullExample: "оно работало (it worked)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "past",
+        conjugationType: "first",
+        person: "они",
+        gender: "plural",
+        correctForm: "работали",
+        wrongOptions: ["работал", "работала", "работало"],
+        fullExample: "они работали (they worked)"
+    },
+
+    // делать - past
+    {
+        infinitive: "делать",
+        translation: "to do/make",
+        tense: "past",
+        conjugationType: "first",
+        person: "он",
+        gender: "masculine",
+        correctForm: "делал",
+        wrongOptions: ["делала", "делало", "делали"],
+        fullExample: "он делал (he did)"
+    },
+    {
+        infinitive: "делать",
+        translation: "to do/make",
+        tense: "past",
+        conjugationType: "first",
+        person: "она",
+        gender: "feminine",
+        correctForm: "делала",
+        wrongOptions: ["делал", "делало", "делали"],
+        fullExample: "она делала (she did)"
+    },
+    {
+        infinitive: "делать",
+        translation: "to do/make",
+        tense: "past",
+        conjugationType: "first",
+        person: "они",
+        gender: "plural",
+        correctForm: "делали",
+        wrongOptions: ["делал", "делала", "делало"],
+        fullExample: "они делали (they did)"
+    },
+
+    // говорить - past
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "past",
+        conjugationType: "second",
+        person: "он",
+        gender: "masculine",
+        correctForm: "говорил",
+        wrongOptions: ["говорила", "говорило", "говорили"],
+        fullExample: "он говорил (he spoke)"
+    },
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "past",
+        conjugationType: "second",
+        person: "она",
+        gender: "feminine",
+        correctForm: "говорила",
+        wrongOptions: ["говорил", "говорило", "говорили"],
+        fullExample: "она говорила (she spoke)"
+    },
+    {
+        infinitive: "говорить",
+        translation: "to speak",
+        tense: "past",
+        conjugationType: "second",
+        person: "они",
+        gender: "plural",
+        correctForm: "говорили",
+        wrongOptions: ["говорил", "говорила", "говорило"],
+        fullExample: "они говорили (they spoke)"
+    },
+
+    // FUTURE TENSE - Imperfective (буду + infinitive)
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "future",
+        conjugationType: "first",
+        aspect: "imperfective",
+        person: "я",
+        correctForm: "буду работать",
+        wrongOptions: ["буду работаю", "будет работать", "будут работать"],
+        fullExample: "я буду работать (I will work)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "future",
+        conjugationType: "first",
+        aspect: "imperfective",
+        person: "ты",
+        correctForm: "будешь работать",
+        wrongOptions: ["буду работать", "будет работать", "будете работать"],
+        fullExample: "ты будешь работать (you will work)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "future",
+        conjugationType: "first",
+        aspect: "imperfective",
+        person: "он/она",
+        correctForm: "будет работать",
+        wrongOptions: ["буду работать", "будешь работать", "будут работать"],
+        fullExample: "он/она будет работать (he/she will work)"
+    },
+    {
+        infinitive: "работать",
+        translation: "to work",
+        tense: "future",
+        conjugationType: "first",
+        aspect: "imperfective",
+        person: "они",
+        correctForm: "будут работать",
+        wrongOptions: ["буду работать", "будет работать", "будем работать"],
+        fullExample: "они будут работать (they will work)"
+    }
+];
+
 // Combine all words
 const allWords = [...russianNouns, ...russianAdjectives];
 
@@ -1835,13 +2250,135 @@ function startVerbsPractice() {
     const tenseCheckboxes = document.querySelectorAll('.tense-checkbox:checked');
     const selectedTenses = Array.from(tenseCheckboxes).map(cb => cb.value);
 
+    const conjugationCheckboxes = document.querySelectorAll('.conjugation-checkbox:checked');
+    const selectedConjugations = Array.from(conjugationCheckboxes).map(cb => cb.value);
+
     if (selectedTenses.length === 0) {
         alert('Please select at least one tense to practice!');
         return;
     }
 
-    // TODO: Implement verb conjugation practice
-    alert('Verb conjugation practice coming soon!');
+    if (selectedConjugations.length === 0) {
+        alert('Please select at least one conjugation type!');
+        return;
+    }
+
+    // Filter verbs based on selection
+    availableWords = russianVerbs.filter(verb =>
+        selectedTenses.includes(verb.tense) && selectedConjugations.includes(verb.conjugationType)
+    );
+
+    if (availableWords.length === 0) {
+        alert('No verbs available for the selected options. Try different settings.');
+        return;
+    }
+
+    shuffleArray(availableWords);
+
+    // Reset stats
+    correctCount = 0;
+    totalCount = 0;
+    updateStats();
+
+    // Go to practice
+    goToPractice();
+    loadVerbQuestion();
+}
+
+function loadVerbQuestion() {
+    if (availableWords.length === 0) {
+        // Reshuffle when we run out
+        const tenseCheckboxes = document.querySelectorAll('.tense-checkbox:checked');
+        const selectedTenses = Array.from(tenseCheckboxes).map(cb => cb.value);
+        const conjugationCheckboxes = document.querySelectorAll('.conjugation-checkbox:checked');
+        const selectedConjugations = Array.from(conjugationCheckboxes).map(cb => cb.value);
+
+        availableWords = russianVerbs.filter(verb =>
+            selectedTenses.includes(verb.tense) && selectedConjugations.includes(verb.conjugationType)
+        );
+        shuffleArray(availableWords);
+    }
+
+    currentWord = availableWords.pop();
+    currentAgreementQuestion = null;
+
+    // Update word display
+    baseWordEl.textContent = currentWord.infinitive;
+    translationEl.textContent = `"${currentWord.translation}"`;
+
+    let caseText = `${currentWord.tense} tense - ${currentWord.person}`;
+    if (currentWord.gender) {
+        caseText += ` (${currentWord.gender})`;
+    }
+    caseTypeEl.textContent = caseText;
+
+    // Update word type badge
+    const wordTypeEl = document.getElementById('wordType');
+    wordTypeEl.textContent = 'verb';
+    wordTypeEl.className = `word-type-badge verb`;
+
+    // Update question text
+    questionTextEl.textContent = `How do you conjugate this verb?`;
+
+    // Clear feedback
+    feedbackEl.classList.add('hidden');
+    feedbackEl.classList.remove('correct', 'incorrect');
+
+    // Hide next button, show hint button
+    nextBtn.classList.add('hidden');
+    showAnswerBtn.classList.remove('hidden');
+
+    // Create options
+    createVerbOptions();
+}
+
+function createVerbOptions() {
+    optionsContainer.innerHTML = '';
+
+    // Combine correct answer with wrong options and shuffle
+    const allOptions = [currentWord.correctForm, ...currentWord.wrongOptions];
+    shuffleArray(allOptions);
+
+    allOptions.forEach(option => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = option;
+        btn.addEventListener('click', () => selectVerbOption(btn, option));
+        optionsContainer.appendChild(btn);
+    });
+}
+
+function selectVerbOption(button, selectedAnswer) {
+    // Disable all buttons
+    const allButtons = optionsContainer.querySelectorAll('.option-btn');
+    allButtons.forEach(btn => btn.disabled = true);
+
+    // Check answer
+    const isCorrect = selectedAnswer === currentWord.correctForm;
+
+    totalCount++;
+    if (isCorrect) {
+        correctCount++;
+        button.classList.add('correct');
+        feedbackEl.textContent = `Correct! ${currentWord.fullExample}`;
+        feedbackEl.classList.add('correct');
+    } else {
+        button.classList.add('incorrect');
+        // Highlight the correct answer
+        allButtons.forEach(btn => {
+            if (btn.textContent === currentWord.correctForm) {
+                btn.classList.add('correct');
+            }
+        });
+        feedbackEl.textContent = `Incorrect. The correct answer is: ${currentWord.correctForm}`;
+        feedbackEl.classList.add('incorrect');
+    }
+
+    feedbackEl.classList.remove('hidden');
+    showAnswerBtn.classList.add('hidden');
+    nextBtn.classList.remove('hidden');
+
+    updateStats();
 }
 
 // ========== PRONOUNS PRACTICE ==========
@@ -1908,6 +2445,8 @@ function loadNextWord() {
         loadCaseQuestion();
     } else if (currentTopic === 'agreement') {
         loadAgreementQuestion();
+    } else if (currentTopic === 'verbs') {
+        loadVerbQuestion();
     }
 }
 
@@ -2121,7 +2660,7 @@ function selectAgreementOption(button, selectedAnswer) {
 function showAnswer() {
     const allButtons = optionsContainer.querySelectorAll('.option-btn');
 
-    if (practiceMode === 'case') {
+    if (currentTopic === 'cases') {
         allButtons.forEach(btn => {
             btn.disabled = true;
             if (btn.textContent === currentWord.correctForm) {
@@ -2130,8 +2669,7 @@ function showAnswer() {
         });
 
         feedbackEl.textContent = `Answer: ${currentWord.preposition} ${currentWord.correctForm}`;
-    } else {
-        // Agreement mode
+    } else if (currentTopic === 'agreement') {
         allButtons.forEach(btn => {
             btn.disabled = true;
             if (btn.textContent === currentAgreementQuestion.correctForm) {
@@ -2140,6 +2678,15 @@ function showAnswer() {
         });
 
         feedbackEl.textContent = `Answer: ${currentAgreementQuestion.preposition} ${currentAgreementQuestion.correctForm} ${currentAgreementQuestion.noun.correctForm}`;
+    } else if (currentTopic === 'verbs') {
+        allButtons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.textContent === currentWord.correctForm) {
+                btn.classList.add('correct');
+            }
+        });
+
+        feedbackEl.textContent = `Answer: ${currentWord.correctForm} (${currentWord.fullExample})`;
     }
 
     feedbackEl.classList.add('correct');
