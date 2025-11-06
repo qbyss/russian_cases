@@ -1,5 +1,641 @@
 // Russian noun data with cases
 const russianNouns = [
+    // NOMINATIVE CASE - Base forms
+    // Masculine
+    {
+        base: "стол",
+        translation: "table",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "стол",
+        preposition: "",
+        fullExample: "стол (table)",
+        wrongOptions: ["стола", "столу", "столом"],
+        wordType: "noun"
+    },
+    {
+        base: "дом",
+        translation: "house",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "дом",
+        preposition: "",
+        fullExample: "дом (house)",
+        wrongOptions: ["дома", "дому", "домом"],
+        wordType: "noun"
+    },
+    {
+        base: "музей",
+        translation: "museum",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "музей",
+        preposition: "",
+        fullExample: "музей (museum)",
+        wrongOptions: ["музея", "музею", "музее"],
+        wordType: "noun"
+    },
+    {
+        base: "город",
+        translation: "city",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "город",
+        preposition: "",
+        fullExample: "город (city)",
+        wrongOptions: ["города", "городу", "городе"],
+        wordType: "noun"
+    },
+    {
+        base: "парк",
+        translation: "park",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "парк",
+        preposition: "",
+        fullExample: "парк (park)",
+        wrongOptions: ["парка", "парку", "парке"],
+        wordType: "noun"
+    },
+    // Feminine
+    {
+        base: "книга",
+        translation: "book",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "книга",
+        preposition: "",
+        fullExample: "книга (book)",
+        wrongOptions: ["книги", "книгу", "книгой"],
+        wordType: "noun"
+    },
+    {
+        base: "школа",
+        translation: "school",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "школа",
+        preposition: "",
+        fullExample: "школа (school)",
+        wrongOptions: ["школы", "школу", "школе"],
+        wordType: "noun"
+    },
+    {
+        base: "комната",
+        translation: "room",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "комната",
+        preposition: "",
+        fullExample: "комната (room)",
+        wrongOptions: ["комнаты", "комнату", "комнате"],
+        wordType: "noun"
+    },
+    {
+        base: "страна",
+        translation: "country",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "страна",
+        preposition: "",
+        fullExample: "страна (country)",
+        wrongOptions: ["страны", "страну", "стране"],
+        wordType: "noun"
+    },
+    {
+        base: "работа",
+        translation: "work",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "работа",
+        preposition: "",
+        fullExample: "работа (work)",
+        wrongOptions: ["работы", "работу", "работе"],
+        wordType: "noun"
+    },
+    {
+        base: "сумка",
+        translation: "bag",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "сумка",
+        preposition: "",
+        fullExample: "сумка (bag)",
+        wrongOptions: ["сумки", "сумку", "сумке"],
+        wordType: "noun"
+    },
+    // Neuter
+    {
+        base: "окно",
+        translation: "window",
+        gender: "neuter",
+        caseType: "nominative",
+        correctForm: "окно",
+        preposition: "",
+        fullExample: "окно (window)",
+        wrongOptions: ["окна", "окну", "окне"],
+        wordType: "noun"
+    },
+    {
+        base: "море",
+        translation: "sea",
+        gender: "neuter",
+        caseType: "nominative",
+        correctForm: "море",
+        preposition: "",
+        fullExample: "море (sea)",
+        wrongOptions: ["моря", "морю", "морем"],
+        wordType: "noun"
+    },
+    {
+        base: "письмо",
+        translation: "letter",
+        gender: "neuter",
+        caseType: "nominative",
+        correctForm: "письмо",
+        preposition: "",
+        fullExample: "письмо (letter)",
+        wrongOptions: ["письма", "письму", "письме"],
+        wordType: "noun"
+    },
+
+    // GENITIVE CASE
+    // Masculine
+    {
+        base: "стол",
+        translation: "table",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "стола",
+        preposition: "без",
+        fullExample: "без стола (without a table)",
+        wrongOptions: ["стол", "столу", "столом"],
+        wordType: "noun"
+    },
+    {
+        base: "дом",
+        translation: "house",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "дома",
+        preposition: "из",
+        fullExample: "из дома (from the house)",
+        wrongOptions: ["дом", "дому", "доме"],
+        wordType: "noun"
+    },
+    {
+        base: "музей",
+        translation: "museum",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "музея",
+        preposition: "из",
+        fullExample: "из музея (from the museum)",
+        wrongOptions: ["музей", "музею", "музее"],
+        wordType: "noun"
+    },
+    {
+        base: "город",
+        translation: "city",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "города",
+        preposition: "из",
+        fullExample: "из города (from the city)",
+        wrongOptions: ["город", "городу", "городе"],
+        wordType: "noun"
+    },
+    {
+        base: "парк",
+        translation: "park",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "парка",
+        preposition: "из",
+        fullExample: "из парка (from the park)",
+        wrongOptions: ["парк", "парку", "парке"],
+        wordType: "noun"
+    },
+    // Feminine
+    {
+        base: "книга",
+        translation: "book",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "книги",
+        preposition: "без",
+        fullExample: "без книги (without a book)",
+        wrongOptions: ["книга", "книгу", "книге"],
+        wordType: "noun"
+    },
+    {
+        base: "школа",
+        translation: "school",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "школы",
+        preposition: "из",
+        fullExample: "из школы (from school)",
+        wrongOptions: ["школа", "школу", "школе"],
+        wordType: "noun"
+    },
+    {
+        base: "комната",
+        translation: "room",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "комнаты",
+        preposition: "из",
+        fullExample: "из комнаты (from the room)",
+        wrongOptions: ["комната", "комнату", "комнате"],
+        wordType: "noun"
+    },
+    {
+        base: "страна",
+        translation: "country",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "страны",
+        preposition: "из",
+        fullExample: "из страны (from the country)",
+        wrongOptions: ["страна", "страну", "стране"],
+        wordType: "noun"
+    },
+    {
+        base: "работа",
+        translation: "work",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "работы",
+        preposition: "с",
+        fullExample: "с работы (from work)",
+        wrongOptions: ["работа", "работу", "работе"],
+        wordType: "noun"
+    },
+    {
+        base: "сумка",
+        translation: "bag",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "сумки",
+        preposition: "без",
+        fullExample: "без сумки (without a bag)",
+        wrongOptions: ["сумка", "сумку", "сумке"],
+        wordType: "noun"
+    },
+    // Neuter
+    {
+        base: "окно",
+        translation: "window",
+        gender: "neuter",
+        caseType: "genitive",
+        correctForm: "окна",
+        preposition: "без",
+        fullExample: "без окна (without a window)",
+        wrongOptions: ["окно", "окну", "окне"],
+        wordType: "noun"
+    },
+    {
+        base: "море",
+        translation: "sea",
+        gender: "neuter",
+        caseType: "genitive",
+        correctForm: "моря",
+        preposition: "у",
+        fullExample: "у моря (by the sea)",
+        wrongOptions: ["море", "морю", "морем"],
+        wordType: "noun"
+    },
+    {
+        base: "письмо",
+        translation: "letter",
+        gender: "neuter",
+        caseType: "genitive",
+        correctForm: "письма",
+        preposition: "без",
+        fullExample: "без письма (without a letter)",
+        wrongOptions: ["письмо", "письму", "письме"],
+        wordType: "noun"
+    },
+
+    // DATIVE CASE
+    // Masculine
+    {
+        base: "стол",
+        translation: "table",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "столу",
+        preposition: "к",
+        fullExample: "к столу (to the table)",
+        wrongOptions: ["стол", "стола", "столом"],
+        wordType: "noun"
+    },
+    {
+        base: "дом",
+        translation: "house",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "дому",
+        preposition: "к",
+        fullExample: "к дому (to the house)",
+        wrongOptions: ["дом", "дома", "доме"],
+        wordType: "noun"
+    },
+    {
+        base: "музей",
+        translation: "museum",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "музею",
+        preposition: "к",
+        fullExample: "к музею (to the museum)",
+        wrongOptions: ["музей", "музея", "музее"],
+        wordType: "noun"
+    },
+    {
+        base: "город",
+        translation: "city",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "городу",
+        preposition: "к",
+        fullExample: "к городу (to the city)",
+        wrongOptions: ["город", "города", "городе"],
+        wordType: "noun"
+    },
+    {
+        base: "парк",
+        translation: "park",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "парку",
+        preposition: "к",
+        fullExample: "к парку (to the park)",
+        wrongOptions: ["парк", "парка", "парке"],
+        wordType: "noun"
+    },
+    // Feminine
+    {
+        base: "книга",
+        translation: "book",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "книге",
+        preposition: "к",
+        fullExample: "к книге (to the book)",
+        wrongOptions: ["книга", "книги", "книгу"],
+        wordType: "noun"
+    },
+    {
+        base: "школа",
+        translation: "school",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "школе",
+        preposition: "к",
+        fullExample: "к школе (to the school)",
+        wrongOptions: ["школа", "школы", "школу"],
+        wordType: "noun"
+    },
+    {
+        base: "комната",
+        translation: "room",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "комнате",
+        preposition: "к",
+        fullExample: "к комнате (to the room)",
+        wrongOptions: ["комната", "комнаты", "комнату"],
+        wordType: "noun"
+    },
+    {
+        base: "страна",
+        translation: "country",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "стране",
+        preposition: "к",
+        fullExample: "к стране (to the country)",
+        wrongOptions: ["страна", "страны", "страну"],
+        wordType: "noun"
+    },
+    {
+        base: "работа",
+        translation: "work",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "работе",
+        preposition: "к",
+        fullExample: "к работе (to work)",
+        wrongOptions: ["работа", "работы", "работу"],
+        wordType: "noun"
+    },
+    {
+        base: "сумка",
+        translation: "bag",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "сумке",
+        preposition: "к",
+        fullExample: "к сумке (to the bag)",
+        wrongOptions: ["сумка", "сумки", "сумку"],
+        wordType: "noun"
+    },
+    // Neuter
+    {
+        base: "окно",
+        translation: "window",
+        gender: "neuter",
+        caseType: "dative",
+        correctForm: "окну",
+        preposition: "к",
+        fullExample: "к окну (to the window)",
+        wrongOptions: ["окно", "окна", "окне"],
+        wordType: "noun"
+    },
+    {
+        base: "море",
+        translation: "sea",
+        gender: "neuter",
+        caseType: "dative",
+        correctForm: "морю",
+        preposition: "к",
+        fullExample: "к морю (to the sea)",
+        wrongOptions: ["море", "моря", "морем"],
+        wordType: "noun"
+    },
+    {
+        base: "письмо",
+        translation: "letter",
+        gender: "neuter",
+        caseType: "dative",
+        correctForm: "письму",
+        preposition: "к",
+        fullExample: "к письму (to the letter)",
+        wrongOptions: ["письмо", "письма", "письме"],
+        wordType: "noun"
+    },
+
+    // INSTRUMENTAL CASE
+    // Masculine
+    {
+        base: "стол",
+        translation: "table",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "столом",
+        preposition: "с",
+        fullExample: "со столом (with a table)",
+        wrongOptions: ["стол", "стола", "столу"],
+        wordType: "noun"
+    },
+    {
+        base: "дом",
+        translation: "house",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "домом",
+        preposition: "с",
+        fullExample: "с домом (with a house)",
+        wrongOptions: ["дом", "дома", "дому"],
+        wordType: "noun"
+    },
+    {
+        base: "музей",
+        translation: "museum",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "музеем",
+        preposition: "с",
+        fullExample: "с музеем (with a museum)",
+        wrongOptions: ["музей", "музея", "музею"],
+        wordType: "noun"
+    },
+    {
+        base: "город",
+        translation: "city",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "городом",
+        preposition: "с",
+        fullExample: "с городом (with a city)",
+        wrongOptions: ["город", "города", "городу"],
+        wordType: "noun"
+    },
+    {
+        base: "парк",
+        translation: "park",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "парком",
+        preposition: "с",
+        fullExample: "с парком (with a park)",
+        wrongOptions: ["парк", "парка", "парку"],
+        wordType: "noun"
+    },
+    // Feminine
+    {
+        base: "книга",
+        translation: "book",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "книгой",
+        preposition: "с",
+        fullExample: "с книгой (with a book)",
+        wrongOptions: ["книга", "книги", "книгу"],
+        wordType: "noun"
+    },
+    {
+        base: "школа",
+        translation: "school",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "школой",
+        preposition: "со",
+        fullExample: "со школой (with a school)",
+        wrongOptions: ["школа", "школы", "школу"],
+        wordType: "noun"
+    },
+    {
+        base: "комната",
+        translation: "room",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "комнатой",
+        preposition: "с",
+        fullExample: "с комнатой (with a room)",
+        wrongOptions: ["комната", "комнаты", "комнату"],
+        wordType: "noun"
+    },
+    {
+        base: "страна",
+        translation: "country",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "страной",
+        preposition: "с",
+        fullExample: "со страной (with a country)",
+        wrongOptions: ["страна", "страны", "страну"],
+        wordType: "noun"
+    },
+    {
+        base: "работа",
+        translation: "work",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "работой",
+        preposition: "с",
+        fullExample: "с работой (with work)",
+        wrongOptions: ["работа", "работы", "работу"],
+        wordType: "noun"
+    },
+    {
+        base: "сумка",
+        translation: "bag",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "сумкой",
+        preposition: "с",
+        fullExample: "с сумкой (with a bag)",
+        wrongOptions: ["сумка", "сумки", "сумку"],
+        wordType: "noun"
+    },
+    // Neuter
+    {
+        base: "окно",
+        translation: "window",
+        gender: "neuter",
+        caseType: "instrumental",
+        correctForm: "окном",
+        preposition: "с",
+        fullExample: "с окном (with a window)",
+        wrongOptions: ["окно", "окна", "окну"],
+        wordType: "noun"
+    },
+    {
+        base: "море",
+        translation: "sea",
+        gender: "neuter",
+        caseType: "instrumental",
+        correctForm: "морем",
+        preposition: "с",
+        fullExample: "с морем (with a sea)",
+        wrongOptions: ["море", "моря", "морю"],
+        wordType: "noun"
+    },
+    {
+        base: "письмо",
+        translation: "letter",
+        gender: "neuter",
+        caseType: "instrumental",
+        correctForm: "письмом",
+        preposition: "с",
+        fullExample: "с письмом (with a letter)",
+        wrongOptions: ["письмо", "письма", "письму"],
+        wordType: "noun"
+    },
+
     // Prepositional case examples
     {
         base: "стол",
@@ -228,6 +864,510 @@ const russianNouns = [
 
 // Russian adjective data with cases
 const russianAdjectives = [
+    // NOMINATIVE CASE - Base forms
+    // Masculine
+    {
+        base: "новый",
+        translation: "new",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "новый",
+        preposition: "",
+        fullExample: "новый (new)",
+        wrongOptions: ["нового", "новому", "новым"],
+        wordType: "adjective"
+    },
+    {
+        base: "старый",
+        translation: "old",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "старый",
+        preposition: "",
+        fullExample: "старый (old)",
+        wrongOptions: ["старого", "старому", "старым"],
+        wordType: "adjective"
+    },
+    {
+        base: "большой",
+        translation: "big",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "большой",
+        preposition: "",
+        fullExample: "большой (big)",
+        wrongOptions: ["большого", "большому", "большим"],
+        wordType: "adjective"
+    },
+    {
+        base: "синий",
+        translation: "blue",
+        gender: "masculine",
+        caseType: "nominative",
+        correctForm: "синий",
+        preposition: "",
+        fullExample: "синий (blue)",
+        wrongOptions: ["синего", "синему", "синим"],
+        wordType: "adjective"
+    },
+    // Feminine
+    {
+        base: "новая",
+        translation: "new",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "новая",
+        preposition: "",
+        fullExample: "новая (new)",
+        wrongOptions: ["новой", "новую", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старая",
+        translation: "old",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "старая",
+        preposition: "",
+        fullExample: "старая (old)",
+        wrongOptions: ["старой", "старую", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "большая",
+        translation: "big",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "большая",
+        preposition: "",
+        fullExample: "большая (big)",
+        wrongOptions: ["большой", "большую", "большом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синяя",
+        translation: "blue",
+        gender: "feminine",
+        caseType: "nominative",
+        correctForm: "синяя",
+        preposition: "",
+        fullExample: "синяя (blue)",
+        wrongOptions: ["синей", "синюю", "синем"],
+        wordType: "adjective"
+    },
+    // Neuter
+    {
+        base: "новое",
+        translation: "new",
+        gender: "neuter",
+        caseType: "nominative",
+        correctForm: "новое",
+        preposition: "",
+        fullExample: "новое (new)",
+        wrongOptions: ["нового", "новому", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старое",
+        translation: "old",
+        gender: "neuter",
+        caseType: "nominative",
+        correctForm: "старое",
+        preposition: "",
+        fullExample: "старое (old)",
+        wrongOptions: ["старого", "старому", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синее",
+        translation: "blue",
+        gender: "neuter",
+        caseType: "nominative",
+        correctForm: "синее",
+        preposition: "",
+        fullExample: "синее (blue)",
+        wrongOptions: ["синего", "синему", "синем"],
+        wordType: "adjective"
+    },
+
+    // GENITIVE CASE
+    // Masculine
+    {
+        base: "новый",
+        translation: "new",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "нового",
+        preposition: "без",
+        fullExample: "без нового (without a new one)",
+        wrongOptions: ["новый", "новому", "новым"],
+        wordType: "adjective"
+    },
+    {
+        base: "старый",
+        translation: "old",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "старого",
+        preposition: "без",
+        fullExample: "без старого (without an old one)",
+        wrongOptions: ["старый", "старому", "старым"],
+        wordType: "adjective"
+    },
+    {
+        base: "большой",
+        translation: "big",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "большого",
+        preposition: "без",
+        fullExample: "без большого (without a big one)",
+        wrongOptions: ["большой", "большому", "большим"],
+        wordType: "adjective"
+    },
+    {
+        base: "синий",
+        translation: "blue",
+        gender: "masculine",
+        caseType: "genitive",
+        correctForm: "синего",
+        preposition: "без",
+        fullExample: "без синего (without a blue one)",
+        wrongOptions: ["синий", "синему", "синим"],
+        wordType: "adjective"
+    },
+    // Feminine
+    {
+        base: "новая",
+        translation: "new",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "новой",
+        preposition: "без",
+        fullExample: "без новой (without a new one)",
+        wrongOptions: ["новая", "новую", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старая",
+        translation: "old",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "старой",
+        preposition: "без",
+        fullExample: "без старой (without an old one)",
+        wrongOptions: ["старая", "старую", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "большая",
+        translation: "big",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "большой",
+        preposition: "без",
+        fullExample: "без большой (without a big one)",
+        wrongOptions: ["большая", "большую", "большом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синяя",
+        translation: "blue",
+        gender: "feminine",
+        caseType: "genitive",
+        correctForm: "синей",
+        preposition: "без",
+        fullExample: "без синей (without a blue one)",
+        wrongOptions: ["синяя", "синюю", "синем"],
+        wordType: "adjective"
+    },
+    // Neuter
+    {
+        base: "новое",
+        translation: "new",
+        gender: "neuter",
+        caseType: "genitive",
+        correctForm: "нового",
+        preposition: "без",
+        fullExample: "без нового (without a new one)",
+        wrongOptions: ["новое", "новому", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старое",
+        translation: "old",
+        gender: "neuter",
+        caseType: "genitive",
+        correctForm: "старого",
+        preposition: "без",
+        fullExample: "без старого (without an old one)",
+        wrongOptions: ["старое", "старому", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синее",
+        translation: "blue",
+        gender: "neuter",
+        caseType: "genitive",
+        correctForm: "синего",
+        preposition: "без",
+        fullExample: "без синего (without a blue one)",
+        wrongOptions: ["синее", "синему", "синем"],
+        wordType: "adjective"
+    },
+
+    // DATIVE CASE
+    // Masculine
+    {
+        base: "новый",
+        translation: "new",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "новому",
+        preposition: "к",
+        fullExample: "к новому (to a new one)",
+        wrongOptions: ["новый", "нового", "новым"],
+        wordType: "adjective"
+    },
+    {
+        base: "старый",
+        translation: "old",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "старому",
+        preposition: "к",
+        fullExample: "к старому (to an old one)",
+        wrongOptions: ["старый", "старого", "старым"],
+        wordType: "adjective"
+    },
+    {
+        base: "большой",
+        translation: "big",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "большому",
+        preposition: "к",
+        fullExample: "к большому (to a big one)",
+        wrongOptions: ["большой", "большого", "большим"],
+        wordType: "adjective"
+    },
+    {
+        base: "синий",
+        translation: "blue",
+        gender: "masculine",
+        caseType: "dative",
+        correctForm: "синему",
+        preposition: "к",
+        fullExample: "к синему (to a blue one)",
+        wrongOptions: ["синий", "синего", "синим"],
+        wordType: "adjective"
+    },
+    // Feminine
+    {
+        base: "новая",
+        translation: "new",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "новой",
+        preposition: "к",
+        fullExample: "к новой (to a new one)",
+        wrongOptions: ["новая", "новую", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старая",
+        translation: "old",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "старой",
+        preposition: "к",
+        fullExample: "к старой (to an old one)",
+        wrongOptions: ["старая", "старую", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "большая",
+        translation: "big",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "большой",
+        preposition: "к",
+        fullExample: "к большой (to a big one)",
+        wrongOptions: ["большая", "большую", "большом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синяя",
+        translation: "blue",
+        gender: "feminine",
+        caseType: "dative",
+        correctForm: "синей",
+        preposition: "к",
+        fullExample: "к синей (to a blue one)",
+        wrongOptions: ["синяя", "синюю", "синем"],
+        wordType: "adjective"
+    },
+    // Neuter
+    {
+        base: "новое",
+        translation: "new",
+        gender: "neuter",
+        caseType: "dative",
+        correctForm: "новому",
+        preposition: "к",
+        fullExample: "к новому (to a new one)",
+        wrongOptions: ["новое", "нового", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старое",
+        translation: "old",
+        gender: "neuter",
+        caseType: "dative",
+        correctForm: "старому",
+        preposition: "к",
+        fullExample: "к старому (to an old one)",
+        wrongOptions: ["старое", "старого", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синее",
+        translation: "blue",
+        gender: "neuter",
+        caseType: "dative",
+        correctForm: "синему",
+        preposition: "к",
+        fullExample: "к синему (to a blue one)",
+        wrongOptions: ["синее", "синего", "синем"],
+        wordType: "adjective"
+    },
+
+    // INSTRUMENTAL CASE
+    // Masculine
+    {
+        base: "новый",
+        translation: "new",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "новым",
+        preposition: "с",
+        fullExample: "с новым (with a new one)",
+        wrongOptions: ["новый", "нового", "новому"],
+        wordType: "adjective"
+    },
+    {
+        base: "старый",
+        translation: "old",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "старым",
+        preposition: "с",
+        fullExample: "с старым (with an old one)",
+        wrongOptions: ["старый", "старого", "старому"],
+        wordType: "adjective"
+    },
+    {
+        base: "большой",
+        translation: "big",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "большим",
+        preposition: "с",
+        fullExample: "с большим (with a big one)",
+        wrongOptions: ["большой", "большого", "большому"],
+        wordType: "adjective"
+    },
+    {
+        base: "синий",
+        translation: "blue",
+        gender: "masculine",
+        caseType: "instrumental",
+        correctForm: "синим",
+        preposition: "с",
+        fullExample: "с синим (with a blue one)",
+        wrongOptions: ["синий", "синего", "синему"],
+        wordType: "adjective"
+    },
+    // Feminine
+    {
+        base: "новая",
+        translation: "new",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "новой",
+        preposition: "с",
+        fullExample: "с новой (with a new one)",
+        wrongOptions: ["новая", "новую", "новом"],
+        wordType: "adjective"
+    },
+    {
+        base: "старая",
+        translation: "old",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "старой",
+        preposition: "с",
+        fullExample: "с старой (with an old one)",
+        wrongOptions: ["старая", "старую", "старом"],
+        wordType: "adjective"
+    },
+    {
+        base: "большая",
+        translation: "big",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "большой",
+        preposition: "с",
+        fullExample: "с большой (with a big one)",
+        wrongOptions: ["большая", "большую", "большом"],
+        wordType: "adjective"
+    },
+    {
+        base: "синяя",
+        translation: "blue",
+        gender: "feminine",
+        caseType: "instrumental",
+        correctForm: "синей",
+        preposition: "с",
+        fullExample: "с синей (with a blue one)",
+        wrongOptions: ["синяя", "синюю", "синем"],
+        wordType: "adjective"
+    },
+    // Neuter
+    {
+        base: "новое",
+        translation: "new",
+        gender: "neuter",
+        caseType: "instrumental",
+        correctForm: "новым",
+        preposition: "с",
+        fullExample: "с новым (with a new one)",
+        wrongOptions: ["новое", "нового", "новому"],
+        wordType: "adjective"
+    },
+    {
+        base: "старое",
+        translation: "old",
+        gender: "neuter",
+        caseType: "instrumental",
+        correctForm: "старым",
+        preposition: "с",
+        fullExample: "с старым (with an old one)",
+        wrongOptions: ["старое", "старого", "старому"],
+        wordType: "adjective"
+    },
+    {
+        base: "синее",
+        translation: "blue",
+        gender: "neuter",
+        caseType: "instrumental",
+        correctForm: "синим",
+        preposition: "с",
+        fullExample: "с синим (with a blue one)",
+        wrongOptions: ["синее", "синего", "синему"],
+        wordType: "adjective"
+    },
+
     // Prepositional case - Masculine
     {
         base: "новый",
